@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Weather</title>
+    <meta name="keywords" content="погода">
+    <meta name="description" content="weather app">
+
+    <link rel="stylesheet" href="./style/styles.css">
+</head>
+
+<body>
+    <header></header>
+
+    <main>
+        <h1>Погода здесь</h1>
+        <button id="update-geolocation">Обновить геолокацию</button>
+        <div class="general">
+            <h2>Saint Petersburg</h2>
+            <img class="weather-img">
+            <span class="temperature">2&deg;C</span>
+            <ul class="weather-details">
+                <li class="wind">Ветер</li>
+                <li class="cloudiness">Облачность</li>
+                <li class="pressure">Давление</li>
+                <li class="humidity">Влажность</li>
+                <li class="coordinates">Координаты</li>
+            </ul>
+        </div>
+        <h2>Избранное</h2>
+        <textarea placeholder="Добавить новый город"></textarea>
+        <button class="city-interaction"></button>         
+        <ul id="favorites">
+            <li class="favorite-city">
+                <h3>Krasnoyarsk</h3>
+                <img class="weather-img">
+                <span class="temperature">1&deg;C</span>
+                <button class="city-interaction" class="delete"></button>
+                <ul class="weather-details">
+                    <li class="wind">Ветер</li>
+                    <li class="cloudiness">Облачность</li>
+                    <li class="pressure">Давление</li>
+                    <li class="humidity">Влажность</li>
+                    <li class="coordinates">Координаты</li>
+                </ul>
+            </li>
+            <li class="favorite-city">
+                <h3>Paris</h3>
+                <img class="weather-img">
+                <span class="temperature">1&deg;C</span>
+                <button class="city-interaction" class="delete"></button>
+                <ul class="weather-details">
+                    <li class="wind">Ветер</li>
+                    <li class="cloudiness">Облачность</li>
+                    <li class="pressure">Давление</li>
+                    <li class="humidity">Влажность</li>
+                    <li class="coordinates">Координаты</li>
+                </ul>
+            </li>
+            <li class="favorite-city">
+                <h3>Birobidzhan</h3>
+                <img class="weather-img">
+                <span class="temperature">1&deg;C</span>
+                <button class="city-interaction" class="delete"></button>
+                <ul class="weather-details">
+                    <li class="wind">Ветер</li>
+                    <li class="cloudiness">Облачность</li>
+                    <li class="pressure">Давление</li>
+                    <li class="humidity">Влажность</li>
+                    <li class="coordinates">Координаты</li>
+                </ul>
+            </li>
+        </ul>
+    </main>
+
+    <footer></footer>
+</body>
