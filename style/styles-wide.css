@@ -1,0 +1,40 @@
+li {
+    list-style: none;
+}
+header {
+    display: none;
+}
+footer {
+    display: none;
+}
+header {
+    display: grid;
+    grid-template-areas: "weather update empty";
+    grid-template-columns: repeat(3, 1fr);
+}
+main {
+    display: grid;
+    grid-template-areas:    "weather update"
+                            "general general"
+                            "favorite add-city"
+                            "favorite-cities favorite-cities";
+    grid-template-columns: 1fr 1fr;
+}
+#weather-header {
+    grid-area: weather;
+}
+#update-geolocation {
+    grid-area: update;
+}
+#general {
+    grid-area: general;
+}
+#favorite {
+    grid-area: favorite;
+}
+#add-city {
+    grid-area: add-city;
+}
+#favorite-cities {
+    grid-area: favorite-cities;
+}
