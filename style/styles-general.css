@@ -1,0 +1,169 @@
+footer {
+    display: none;
+}
+li {
+    list-style: none;
+}
+#weather-header {
+    grid-area: weather;
+    width: min-content;
+}
+#update-geolocation {
+    grid-area: update;
+}
+
+body {
+    min-width: 280px;
+    padding: 20px;
+    font-family: Roboto, serif;
+    margin: 0 auto;
+}
+
+#weather-header {
+    font-weight: 400;
+    text-align: center;
+    margin: 20px auto;
+}
+
+#update-geolocation {
+    align-self: center;
+    margin: auto;
+
+
+    font-family: Roboto, serif;
+    font-weight: 600;
+
+    border-radius: 12px;
+    padding: 10px 20px;
+
+    background-color: lightgray;
+}
+#update-geolocation:hover {
+    background-color: gray;
+}
+
+button {
+    outline: none;
+    border: none;
+    width: min-content;
+    height: min-content;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+button:hover {
+    background-color: gray;
+}
+
+#general {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+h2 {
+    margin: 10px 0;
+}
+#general h2 {
+    font-size: 50px;
+    width: 100%;
+    word-break: break-all;
+}
+#general .temperature {
+    font-size: 100px;
+}
+#general .weather-img {
+    align-self: center;
+}
+
+.weather-details {
+    padding: 0;
+    margin: 0;
+    align-self: center;
+}
+
+.weather-details li {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px;
+    margin: 5px 0;
+    background-color: gray;
+    color: white;
+}
+.property {
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+.value {
+    font-weight: 300;
+}
+
+.city-interaction {
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    font-size: 30px;
+    background-color: lightgray;
+}
+
+#add-city {
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+}
+#add-city textarea {
+    width: 60%;
+    height: 20px;
+    resize: none;
+    outline: none;
+    font-family: inherit;
+    border-radius: 0;
+    border: none;
+    background-color: rgb(216, 216, 216);
+    padding: 10px 0 10px 10px;
+}
+
+#favorite {
+    font-weight: 400;
+    width: min-content;
+}
+
+h3 {
+    margin: 10px 0;
+}
+
+.city-info {
+    display: flex;
+    justify-content: space-between;
+}
+.city-info h3 {
+    word-break: break-word;
+    font-size: 32px;
+    width: content;
+    max-width: 30%;
+    align-self: center;
+}
+.temperature {
+    height: min-content;
+    align-self: center;
+}
+.city-info img {
+    align-self: center;
+}
+.city-info .city-interaction {
+    align-self: center;
+    margin: 0 0 0 0;
+}
+.city-info .temperature {
+    font-size: 24px;
+}
+
+.short-info {
+    display: flex;
+    align-self: center;
+}
+.short-info .temperature {
+    align-self: center;
+    margin-right: 10px;
+}
+.short-info img {
+    align-self: center;
+}

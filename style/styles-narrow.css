@@ -1,0 +1,11 @@
+@media (max-width: 768px) {
+    header {
+        display: grid;
+        grid-template-areas: "weather update";
+        grid-template-columns: repeat(2, 1fr);
+    }
+    main {
+        display: grid;
+        gap: 16px;
+    }
+}
