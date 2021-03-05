@@ -12,8 +12,10 @@ li {
     grid-area: update;
 }
 
+
 body {
     min-width: 280px;
+    overflow: auto;
     padding: 20px;
     font-family: Roboto, serif;
     margin: 0 auto;
