@@ -16,11 +16,14 @@
 <body>
     <header>
         <h1 id="weather-header">Погода здесь</h1>
-        <button id="update-geolocation">Обновить геолокацию</button>
+        <button id="update-geolocation">
+            <div id="update-text">Обновить геолокацию</div>
+            <div  id="update-symbol">&#11119;</div>
+        </button>
     </header>
 
     <main>
-        <div id="general">
+        <div id="general-city">
             <h2>Saint Petersburg</h2>
             <img class="weather-img" src="source/weather-img.png" height="100px" width="100px">
             <span class="temperature">2&deg;C</span>
@@ -49,110 +52,110 @@
         </ul>
 
         <h2 id="favorite">Избранное</h2>
-        <div id="add-city">
+        <form id="add-city">
             <textarea placeholder="Добавить новый город"></textarea>
             <button class="city-interaction">&#43;</button>
-        </div>
+        </form>
 
-        <div class="favorite-city">
-            <div class="city-info">
-                <h3 class="info">Krasnoyarsk</h3>
-                <div class="info short-info">
-                    <span class="temperature">1&deg;C</span>
-                    <img class="weather-img" src="source/weather-img.png" height="50" width="50px">
+        <ul id="favorite-cities">
+            <li class="favorite-city">
+                <div class="city-info">
+                    <h3 class="info">Krasnoyarsk</h3>
+                    <div class="info short-info">
+                        <span class="temperature">1&deg;C</span>
+                        <img class="weather-img" src="source/weather-img.png" height="50" width="50px">
+                    </div>
+                    <button class="city-interaction info" class="delete">&#215;</button>
                 </div>
-                <button class="city-interaction info" class="delete">&#215;</button>
-            </div>
-            <ul class="weather-details">
-                <li>
-                    <span class="property">Ветер</span>
-                    <span class="value">16м/с</span>
-                </li>
-                <li>
-                    <span class="property">Облачность</span>
-                    <span class="value">Облачно</span>
-                </li>
-                <li>
-                    <span class="property">Давление</span>
-                    <span class="value">760мм. рт. ст.</span>
-                </li>
-                <li>
-                    <span class="property">Влажность</span>
-                    <span class="value">88%</span>
-                </li>
-                <li>
-                    <span class="property">Координаты</span>
-                    <span class="value">66&deg;, 41&deg;</span>
-                </li>
-            </ul>
-        </div>
-
-        <div class="favorite-city">
-            <div class="city-info">
-                <h3 class="info">Paris</h3>
-                <div class="info short-info">
-                    <span class="temperature">1&deg;C</span>
-                    <img class="weather-img" src="source/weather-img.png" height="50" width="50px">
+                <ul class="weather-details">
+                    <li>
+                        <span class="property">Ветер</span>
+                        <span class="value">16м/с</span>
+                    </li>
+                    <li>
+                        <span class="property">Облачность</span>
+                        <span class="value">Облачно</span>
+                    </li>
+                    <li>
+                        <span class="property">Давление</span>
+                        <span class="value">760мм. рт. ст.</span>
+                    </li>
+                    <li>
+                        <span class="property">Влажность</span>
+                        <span class="value">88%</span>
+                    </li>
+                    <li>
+                        <span class="property">Координаты</span>
+                        <span class="value">66&deg;, 41&deg;</span>
+                    </li>
+                </ul>
+            </li>
+    
+            <li class="favorite-city">
+                <div class="city-info">
+                    <h3 class="info">Paris</h3>
+                    <div class="info short-info">
+                        <span class="temperature">1&deg;C</span>
+                        <img class="weather-img" src="source/weather-img.png" height="50" width="50px">
+                    </div>
+                    <button class="city-interaction info" class="delete">&#215;</button>
                 </div>
-                <button class="city-interaction info" class="delete">&#215;</button>
-            </div>
-            <ul class="weather-details">
-                <li>
-                    <span class="property">Ветер</span>
-                    <span class="value">16м/с</span>
-                </li>
-                <li>
-                    <span class="property">Облачность</span>
-                    <span class="value">Облачно</span>
-                </li>
-                <li>
-                    <span class="property">Давление</span>
-                    <span class="value">760мм. рт. ст.</span>
-                </li>
-                <li>
-                    <span class="property">Влажность</span>
-                    <span class="value">88%</span>
-                </li>
-                <li>
-                    <span class="property">Координаты</span>
-                    <span class="value">66&deg;, 41&deg;</span>
-                </li>
-            </ul>
-        </div>
-
-        <div class="favorite-city">
-            <div class="city-info">
-                <h3 class="info">Birobidzhan</h3>
-                <div class="info short-info" >
-                    <span class="temperature">1&deg;C</span>
-                    <img class="weather-img" src="source/weather-img.png" height="50" width="50px">
+                <ul class="weather-details">
+                    <li>
+                        <span class="property">Ветер</span>
+                        <span class="value">16м/с</span>
+                    </li>
+                    <li>
+                        <span class="property">Облачность</span>
+                        <span class="value">Облачно</span>
+                    </li>
+                    <li>
+                        <span class="property">Давление</span>
+                        <span class="value">760мм. рт. ст.</span>
+                    </li>
+                    <li>
+                        <span class="property">Влажность</span>
+                        <span class="value">88%</span>
+                    </li>
+                    <li>
+                        <span class="property">Координаты</span>
+                        <span class="value">66&deg;, 41&deg;</span>
+                    </li>
+                </ul>
+            </li>
+    
+            <li class="favorite-city">
+                <div class="city-info">
+                    <h3 class="info">Birobidzhan</h3>
+                    <div class="info short-info" >
+                        <span class="temperature">1&deg;C</span>
+                        <img class="weather-img" src="source/weather-img.png" height="50" width="50px">
+                    </div>
+                    <button class="city-interaction info" class="delete">&#215;</button>
                 </div>
-                <button class="city-interaction info" class="delete">&#215;</button>
-            </div>
-            <ul class="weather-details">
-                <li>
-                    <span class="property">Ветер</span>
-                    <span class="value">16м/с</span>
-                </li>
-                <li>
-                    <span class="property">Облачность</span>
-                    <span class="value">Облачно</span>
-                </li>
-                <li>
-                    <span class="property">Давление</span>
-                    <span class="value">760мм. рт. ст.</span>
-                </li>
-                <li>
-                    <span class="property">Влажность</span>
-                    <span class="value">88%</span>
-                </li>
-                <li>
-                    <span class="property">Координаты</span>
-                    <span class="value">66&deg;, 41&deg;</span>
-                </li>
-            </ul>
-        </div>
+                <ul class="weather-details">
+                    <li>
+                        <span class="property">Ветер</span>
+                        <span class="value">16м/с</span>
+                    </li>
+                    <li>
+                        <span class="property">Облачность</span>
+                        <span class="value">Облачно</span>
+                    </li>
+                    <li>
+                        <span class="property">Давление</span>
+                        <span class="value">760мм. рт. ст.</span>
+                    </li>
+                    <li>
+                        <span class="property">Влажность</span>
+                        <span class="value">88%</span>
+                    </li>
+                    <li>
+                        <span class="property">Координаты</span>
+                        <span class="value">66&deg;, 41&deg;</span>
+                    </li>
+                </ul>
+            </li>
+        </ul>
     </main>
-
-    <footer></footer>
 </body>

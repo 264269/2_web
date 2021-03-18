@@ -1,11 +1,50 @@
 @media (max-width: 768px) {
+    /* Заголовок */
     header {
         display: grid;
         grid-template-areas: "weather update";
         grid-template-columns: repeat(2, 1fr);
+        margin-bottom: 16px;
     }
+
+    /* Стиль кнопки */
+    #update-geolocation {
+        text-align: center;
+
+        width: 50px;
+        height: 50px;
+        padding: 10px;
+
+        font-family: Roboto, serif;
+        font-weight: 600;
+        border-radius: 50%;
+    }
+    #update-text {
+        display: none;
+    }
+    #update-symbol {
+        display: block;
+        font-size: 20px;
+    }
+    
+    /* Главная */
     main {
         display: grid;
         gap: 16px;
+    }
+
+    /* Избранные города */
+    #favorite-cities {
+        display: grid;
+        row-gap: 24px;
+    }
+
+    /* Особенности */
+    #general-city h2 {
+        width: 75vw;
+    }
+    #add-city textarea {
+        width: calc(95% - 40px);
+        margin: 0;
     }
 }

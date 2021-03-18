@@ -1,20 +1,41 @@
 @media (min-width: 769px) {
+    /* Заголовок */
     header {
         display: grid;
         grid-template-areas: "weather update empty";
         grid-template-columns: repeat(3, 1fr);
+        margin-bottom: 24px;
     }
+
+    /* Стиль кнопки */
+    #update-geolocation {
+        text-align: center;
+
+        font-family: Roboto, serif;
+        font-weight: 600;
+        border-radius: 15px;
+        padding: 10px 20px;
+    }
+    #update-text {
+        display: block;
+    }
+    #update-symbol {
+        display: none;
+    }
+
+    /* Главная */
     main {
         display: grid;
-        grid-template-areas:    "general general-details"
+        grid-template-areas:    "general-city general-details"
                                 "favorite add-city"
                                 "favorite-cities favorite-cities";
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: repeat(2, calc(40vw - 32px));
         column-gap: 64px;
         row-gap: 24px;
     }
-    #general {
-        grid-area: general;
+    /* Разбиение по областям на главной*/
+    #general-city {
+        grid-area: general-city;
     }
     #general-details {
         grid-area: general-details;
@@ -27,5 +48,22 @@
     }
     #favorite-cities {
         grid-area: favorite-cities;
+    }
+
+    /* Избранные города */
+    #favorite-cities {
+        display: grid;
+        grid-template-columns: repeat(2, calc(40vw - 32px));
+        column-gap: 64px;
+        row-gap: 24px;
+    }
+
+    /* Особенности */
+    #general-city h2 {
+        max-width: calc(37.5vw - 32px);
+    }
+    #add-city textarea {
+        width: calc(90% - 40px);
+        margin: 0 5% 0 auto;
     }
 }

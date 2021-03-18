@@ -1,54 +1,16 @@
-footer {
-    display: none;
-}
-li {
-    list-style: none;
-}
-#weather-header {
-    grid-area: weather;
-    width: min-content;
-}
-#update-geolocation {
-    grid-area: update;
-}
-
-
+/* Основа */
 body {
+    margin: 20px auto 0;
+    /* padding: 5vh 10vw; */
+    width: 80vw;
     min-width: 280px;
-    overflow: auto;
-    padding: 20px;
     font-family: Roboto, serif;
-    margin: 0 auto;
 }
 
-#weather-header {
-    font-weight: 400;
-    text-align: center;
-    margin: 20px auto;
-}
-
-#update-geolocation {
-    align-self: center;
-    margin: auto;
-
-
-    font-family: Roboto, serif;
-    font-weight: 600;
-
-    border-radius: 12px;
-    padding: 10px 20px;
-
-    background-color: lightgray;
-}
-#update-geolocation:hover {
-    background-color: gray;
-}
-
+/* Переопределение кнопок */
 button {
     outline: none;
     border: none;
-    width: min-content;
-    height: min-content;
     cursor: pointer;
     transition: background-color 0.3s;
 }
@@ -56,63 +18,109 @@ button:hover {
     background-color: gray;
 }
 
-#general {
+/* Заголовок сайта */
+#weather-header {
+    grid-area: weather;
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+/* Кнопка обновления */     
+#update-geolocation {
+    grid-area: update;
+    margin: auto;
+    background-color: lightgray;
+}
+#update-geolocation:hover {
+    background-color: gray;
+}
+
+/* Главный город */
+#general-city {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
-h2 {
-    margin: 10px 0;
-}
-#general h2 {
+#general-city h2 {
     font-size: 50px;
-    width: 100%;
-    word-break: break-all;
+    margin: 10px 0;
+
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
-#general .temperature {
-    font-size: 100px;
+#general-city .temperature {
+    font-size: 75px;
 }
-#general .weather-img {
+#general-city .weather-img {
     align-self: center;
 }
 
+/* Информация о погоде */
+li {
+    list-style: none;
+}
+h3 {
+    margin: 10px 0;
+}
+.city-info {
+    display: grid;
+    grid-template-columns: 2fr 1fr 40px;
+}
+.city-info h3 {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    font-size: 32px;
+    align-self: center;
+}
 .weather-details {
     padding: 0;
     margin: 0;
     align-self: center;
 }
-
 .weather-details li {
     display: flex;
     justify-content: space-between;
     padding: 6px;
     margin: 5px 0;
+
     background-color: gray;
     color: white;
 }
 .property {
     font-weight: 500;
     letter-spacing: 0.5px;
+    margin-right: 10px;
 }
 .value {
     font-weight: 300;
+    margin-left: 10px;
 }
-
 .city-interaction {
     border-radius: 50%;
     height: 40px;
     width: 40px;
     font-size: 30px;
+
     background-color: lightgray;
 }
 
+#favorite {
+    font-weight: 400;
+    margin: 16px 0 8px;
+}
 #add-city {
     display: flex;
     justify-content: space-between;
     align-self: center;
 }
 #add-city textarea {
-    width: 60%;
     height: 20px;
     resize: none;
     outline: none;
@@ -123,26 +131,11 @@ h2 {
     padding: 10px 0 10px 10px;
 }
 
-#favorite {
-    font-weight: 400;
-    width: min-content;
+#favorite-cities {
+    padding: 0;
+    margin: 0;
 }
 
-h3 {
-    margin: 10px 0;
-}
-
-.city-info {
-    display: flex;
-    justify-content: space-between;
-}
-.city-info h3 {
-    word-break: break-word;
-    font-size: 32px;
-    width: content;
-    max-width: 30%;
-    align-self: center;
-}
 .temperature {
     height: min-content;
     align-self: center;
@@ -161,10 +154,11 @@ h3 {
 .short-info {
     display: flex;
     align-self: center;
+    margin: 0 24px 0 auto;
 }
 .short-info .temperature {
     align-self: center;
-    margin-right: 10px;
+    margin-right: 12px;
 }
 .short-info img {
     align-self: center;
