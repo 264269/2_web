@@ -41,11 +41,15 @@ button:hover {
 
 /* Главный город */
 #general-city {
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-between; */
+    display: grid;
+    grid-template-areas:    "name name"
+                            "ico temperature";
 }
 #general-city h2 {
+    grid-area: name;
     font-size: 50px;
     margin: 10px 0;
 
@@ -54,9 +58,12 @@ button:hover {
     text-overflow: ellipsis;
 }
 #general-city .temperature {
+    grid-area: ico;
     font-size: 75px;
 }
 #general-city .weather-img {
+    margin: auto 0 auto auto;
+    grid-area: temperature;
     align-self: center;
 }
 
