@@ -24,38 +24,43 @@
 
     <main>
         <div id="general-city">
-            <h2>Saint Petersburg</h2>
-            <img class="weather-img" src="source/weather-img.png" height="100px" width="100px">
-            <span class="temperature">2&deg;C</span>
+            <div id="general-general">
+                <h2>Saint Petersburg</h2>
+                <img class="weather-img" src="source/weather-img.png" height="100px" width="100px">
+                <span class="temperature">2&deg;C</span>
+            </div>
+            <ul id="general-details" class="weather-details">
+                <li>
+                    <span class="property">Ветер</span>
+                    <span class="value">16м/с</span>
+                </li>
+                <li>
+                    <span class="property">Облачность</span>
+                    <span class="value">Облачно</span>
+                </li>
+                <li>
+                    <span class="property">Давление</span>
+                    <span class="value">760мм. рт. ст.</span>
+                </li>
+                <li>
+                    <span class="property">Влажность</span>
+                    <span class="value">88%</span>
+                </li>
+                <li>
+                    <span class="property">Координаты</span>
+                    <span class="value">66&deg;, 41&deg;</span>
+                </li>
+            </ul>
         </div>
-        <ul id="general-details" class="weather-details">
-            <li>
-                <span class="property">Ветер</span>
-                <span class="value">16м/с</span>
-            </li>
-            <li>
-                <span class="property">Облачность</span>
-                <span class="value">Облачно</span>
-            </li>
-            <li>
-                <span class="property">Давление</span>
-                <span class="value">760мм. рт. ст.</span>
-            </li>
-            <li>
-                <span class="property">Влажность</span>
-                <span class="value">88%</span>
-            </li>
-            <li>
-                <span class="property">Координаты</span>
-                <span class="value">66&deg;, 41&deg;</span>
-            </li>
-        </ul>
-
-        <h2 id="favorite">Избранное</h2>
-        <form id="add-city">
-            <textarea placeholder="Добавить новый город"></textarea>
-            <button class="city-interaction">&#43;</button>
-        </form>
+        
+        <div id="add-favorite">
+            <h2 id="favorite">Избранное</h2>
+            <form id="add-city">
+                <textarea placeholder="Добавить новый город"></textarea>
+                <button class="city-interaction">&#43;</button>
+            </form>
+        </div>
+        
 
         <ul id="favorite-cities">
             <li class="favorite-city">

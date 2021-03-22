@@ -7,6 +7,17 @@ body {
     font-family: Roboto, serif;
 }
 
+/* Главная */
+main {
+    display: grid;
+    grid-template-areas:    "general-city"
+                            "add-favorite"
+                            "favorite-cities";
+    /* grid-template-columns: repeat(2, calc(40vw - 32px)); */
+    /* column-gap: 64px; */
+}
+
+
 /* Переопределение кнопок */
 button {
     outline: none;
@@ -25,9 +36,7 @@ button:hover {
     padding: 0;
     font-weight: 400;
 
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
+    word-break: normal;
 }
 /* Кнопка обновления */     
 #update-geolocation {
@@ -41,27 +50,28 @@ button:hover {
 
 /* Главный город */
 #general-city {
-    /* display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between; */
+    display: grid;
+}
+#general-general {
     display: grid;
     grid-template-areas:    "name name"
                             "ico temperature";
 }
-#general-city h2 {
+#general-general h2 {
     grid-area: name;
     font-size: 50px;
     margin: 10px 0;
+    min-width: 280px;
 
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
 }
-#general-city .temperature {
+#general-general .temperature {
     grid-area: ico;
     font-size: 75px;
 }
-#general-city .weather-img {
+#general-general .weather-img {
     margin: auto 0 auto auto;
     grid-area: temperature;
     align-self: center;
@@ -118,9 +128,12 @@ h3 {
     background-color: lightgray;
 }
 
+#add-favorite {
+    display: grid;
+}
 #favorite {
     font-weight: 400;
-    margin: 16px 0 8px;
+    margin: auto auto auto 0;
 }
 #add-city {
     display: flex;

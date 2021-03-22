@@ -25,26 +25,17 @@
 
     /* Главная */
     main {
-        display: grid;
-        grid-template-areas:    "general-city general-details"
-                                "favorite add-city"
-                                "favorite-cities favorite-cities";
-        grid-template-columns: repeat(2, calc(40vw - 32px));
-        column-gap: 64px;
+        grid-template-columns: 80vw;
         row-gap: 24px;
     }
     /* Разбиение по областям на главной*/
     #general-city {
         grid-area: general-city;
+        grid-template-columns: repeat(2, calc(40vw - 32px));
+        column-gap: 64px;
     }
-    #general-details {
-        grid-area: general-details;
-    }
-    #favorite {
-        grid-area: favorite;
-    }
-    #add-city {
-        grid-area: add-city;
+    #add-favorite {
+        grid-area: add-favorite;
     }
     #favorite-cities {
         grid-area: favorite-cities;
@@ -59,8 +50,12 @@
     }
 
     /* Особенности */
-    #general-city h2 {
-        max-width: calc(37.5vw - 32px);
+    #general-general h2 {
+        max-width: calc(40vw - 32px);
+    }
+    #add-favorite {
+        grid-template-columns: repeat(2, calc(40vw - 32px));
+        column-gap: 64px;
     }
     #add-city textarea {
         width: calc(90% - 40px);

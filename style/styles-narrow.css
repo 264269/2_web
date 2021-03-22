@@ -29,7 +29,6 @@
     
     /* Главная */
     main {
-        display: grid;
         gap: 16px;
     }
 
@@ -41,7 +40,10 @@
 
     /* Особенности */
     #general-city h2 {
-        width: 75vw;
+        width: 80vw;
+    }
+    #add-favorite {
+        row-gap: 12px;
     }
     #add-city textarea {
         width: calc(95% - 40px);
