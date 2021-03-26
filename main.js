@@ -47,43 +47,10 @@ function updateFavourite(el, data) {
     el.querySelector('span.cords').textContent = Number((data.coord.lat).toFixed(1)) + "°, " + Number((data.coord.lon).toFixed(1)) + "°";
     
     el.querySelector('button.delete').addEventListener('click', () => deleteCity(el, data.name));
-    return el;
 }
 
 function createEmptyCity() {
-    var el = document.createElement('li');
-    el.innerHTML = '<li class="favorite-city">\n' +
-        '        <div class="city-info">\n' +
-        '            <h3 class="info">...</h3>\n' +
-        '            <div class="info short-info">\n' +
-        '                <span class="temperature"></span>\n' +
-        '                <img class="weather-img" src="">\n' +
-        '            </div>\n' +
-        '            <button class="city-interaction info delete">&#215;</button>\n' +
-        '        </div>\n' +
-        '        <ul class="weather-details">\n' +
-        '            <li>\n' +
-        '                <span class="property">Ветер</span>\n' +
-        '                <span class="value wind">...</span>\n' +
-        '            </li>\n' +
-        '            <li>\n' +
-        '                <span class="property">Облачность</span>\n' +
-        '                <span class="value cloudiness">...</span>\n' +
-        '            </li>\n' +
-        '            <li>\n' +
-        '                <span class="property">Давление</span>\n' +
-        '                <span class="value pressure">...</span>\n' +
-        '            </li>\n' +
-        '            <li>\n' +
-        '                <span class="property">Влажность</span>\n' +
-        '                <span class="value humidity">...</span>\n' +
-        '            </li>\n' +
-        '            <li>\n' +
-        '                <span class="property">Координаты</span>\n' +
-        '                <span class="value cords">...</span>\n' +
-        '            </li>\n' +
-        '        </ul>\n' +
-        '    </li>';
+    var el = document.querySelector('#city-template').content.cloneNode(true);
     return el;
 }
 
@@ -98,7 +65,9 @@ async function addCity() {
         return;
     }
     
-    document.querySelector('#favorite-cities').appendChild(updateFavourite(createEmptyCity(), data));
+    document.querySelector('#favorite-cities').appendChild(createEmptyCity());
+    let el = document.querySelector('#favorite-cities').lastElementChild;
+    updateFavourite(el, data);
 
     var cities = localStorage.getItem("fav-cities");
     if (cities) {
@@ -109,6 +78,7 @@ async function addCity() {
     }
     localStorage.setItem("fav-cities", JSON.stringify(cities));
 }
+
 function deleteCity(el, name) {
     el.remove();
     var cities = JSON.parse(localStorage.getItem("fav-cities"));
@@ -120,9 +90,11 @@ async function updateCities() {
     var cities = localStorage.getItem("fav-cities");
     if (cities) {
         for (let city of JSON.parse(cities)) {
+            document.querySelector('#favorite-cities').appendChild(createEmptyCity());
+            let el = document.querySelector('#favorite-cities').lastElementChild;
             let data = await fetch(getCityInfo(city))
                 .then(resp => resp.json());
-            document.querySelector('#favorite-cities').appendChild(updateFavourite(createEmptyCity(), data));
+            updateFavourite(el, data);
         }
     }
 }

@@ -65,6 +65,40 @@
         
 
         <ul id="favorite-cities">
+            <template id="city-template">
+                <li class="favorite-city">
+                    <div class="city-info">
+                        <h3 class="info">...</h3>
+                        <div class="info short-info">
+                            <span class="temperature">...</span>
+                            <img class="weather-img" src="">
+                        </div>
+                        <button class="city-interaction info delete">×</button>
+                    </div>
+                    <ul class="weather-details">
+                        <li>
+                            <span class="property">Ветер</span>
+                            <span class="value wind">...</span>
+                        </li>
+                        <li>
+                            <span class="property">Облачность</span>
+                            <span class="value cloudiness">...</span>
+                        </li>
+                        <li>
+                            <span class="property">Давление</span>
+                            <span class="value pressure">...</span>
+                        </li>
+                        <li>
+                            <span class="property">Влажность</span>
+                            <span class="value humidity">...</span>
+                        </li>
+                        <li>
+                            <span class="property">Координаты</span>
+                            <span class="value cords">...</span>
+                        </li>
+                    </ul>
+                </li>
+            </template>
         </ul>
     </main>
 </body>
