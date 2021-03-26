@@ -1,7 +1,6 @@
 /* Основа */
 body {
     margin: 20px auto 0;
-    /* padding: 5vh 10vw; */
     width: 80vw;
     min-width: 280px;
     font-family: Roboto, serif;
@@ -75,6 +74,7 @@ button:hover {
     margin: auto 0 auto auto;
     grid-area: temperature;
     align-self: center;
+    width: 85px;
 }
 
 /* Информация о погоде */
@@ -93,6 +93,7 @@ h3 {
     white-space: nowrap;
     text-overflow: ellipsis;
 
+    margin-right: 8px;
     font-size: 32px;
     align-self: center;
 }
@@ -118,6 +119,9 @@ h3 {
 .value {
     font-weight: 300;
     margin-left: 10px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .city-interaction {
     border-radius: 50%;
@@ -131,7 +135,7 @@ h3 {
 #add-favorite {
     display: grid;
 }
-#favorite {
+#add-favorite h2 {
     font-weight: 400;
     margin: auto auto auto 0;
 }
@@ -140,7 +144,7 @@ h3 {
     justify-content: space-between;
     align-self: center;
 }
-#add-city textarea {
+#add-city input {
     height: 20px;
     resize: none;
     outline: none;
@@ -162,6 +166,7 @@ h3 {
 }
 .city-info img {
     align-self: center;
+    width: 50px;
 }
 .city-info .city-interaction {
     align-self: center;
@@ -179,7 +184,4 @@ h3 {
 .short-info .temperature {
     align-self: center;
     margin-right: 12px;
-}
-.short-info img {
-    align-self: center;
 }

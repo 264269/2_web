@@ -45,8 +45,12 @@
     #add-favorite {
         row-gap: 12px;
     }
-    #add-city textarea {
+    #add-city input {
         width: calc(95% - 40px);
         margin: 0;
+    }
+    .weather-details li {
+        width: 80vw;
+        min-width: 268px;
     }
 }

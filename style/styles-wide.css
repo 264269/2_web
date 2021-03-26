@@ -57,7 +57,7 @@
         grid-template-columns: repeat(2, calc(40vw - 32px));
         column-gap: 64px;
     }
-    #add-city textarea {
+    #add-city input {
         width: calc(90% - 40px);
         margin: 0 5% 0 auto;
     }
