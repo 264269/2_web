@@ -29,6 +29,7 @@
     
     /* Главная */
     main {
+        grid-template-columns: 80vw;
         gap: 16px;
     }
 
@@ -50,7 +51,7 @@
         margin: 0;
     }
     .weather-details li {
-        width: 80vw;
+        width: calc(80vw - 12px);
         min-width: 268px;
     }
 }

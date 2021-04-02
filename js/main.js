@@ -11,23 +11,29 @@ function getMainCityCoords() {
 }
 
 async function updateMainCity(coords) {
-    let data = await fetch(coords)
-        .then(resp => resp.json());
-    if (data.cod != 200) {
-        alert("К сожалению, у нас нет информации о погоде в месте, где Вы находитесь.");
+    try {
+        let data = await fetch(coords)
+            .then(resp => resp.json());
+            
+        if (data.cod != 200) {
+            alert("К сожалению, у нас нет информации о погоде в месте, где Вы находитесь.");
+            return;
+        }
+
+        document.querySelector('#general-city h2').textContent = data.name;
+        document.querySelector('#general-city span.temperature').textContent = Math.round(data.main.temp) - 273 + "°C";
+        document.querySelector('#general-city img').src = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
+
+        document.querySelector('#general-city ul li span.wind').textContent = data.wind.speed + "м/с";
+        document.querySelector('#general-city ul li span.cloudiness').textContent =
+            data.weather[0].description.charAt(0).toUpperCase() + data.weather[0].description.slice(1);
+        document.querySelector('#general-city ul li span.pressure').textContent = data.main.pressure + "мм рт. ст.";
+        document.querySelector('#general-city ul li span.humidity').textContent = data.main.humidity + "%";
+        document.querySelector('#general-city ul li span.cords').textContent = Number((data.coord.lat).toFixed(1)) + "°, " + Number((data.coord.lon).toFixed(1)) + "°";
+    } catch(err) {
+        makeOffline(document.querySelector('#general-city'))
         return;
     }
-
-    document.querySelector('#general-city h2').textContent = data.name;
-    document.querySelector('#general-city span.temperature').textContent = Math.round(data.main.temp) - 273 + "°C";
-    document.querySelector('#general-city img').src = "http://openweathermap.org/img/w/" + data.weather[0].icon + ".png";
-
-    document.querySelector('#general-city ul li span.wind').textContent = data.wind.speed + "м/с";
-    document.querySelector('#general-city ul li span.cloudiness').textContent =
-        data.weather[0].description.charAt(0).toUpperCase() + data.weather[0].description.slice(1);
-    document.querySelector('#general-city ul li span.pressure').textContent = data.main.pressure + "мм рт. ст.";
-    document.querySelector('#general-city ul li span.humidity').textContent = data.main.humidity + "%";
-    document.querySelector('#general-city ul li span.cords').textContent = Number((data.coord.lat).toFixed(1)) + "°, " + Number((data.coord.lon).toFixed(1)) + "°";
 }
 
 const getCityInfo = (city) => {
@@ -58,15 +64,21 @@ async function addCity() {
     var inputBox = document.querySelector('#add-favorite input');
     var city = inputBox.value;
     inputBox.value = '';
+    if (!city) {
+        alert("Название города не может быть пустым");
+        return;
+    }
+    document.querySelector('#favorite-cities').appendChild(createEmptyCity());
+    let el = document.querySelector('#favorite-cities').lastElementChild;
+
     let data = await fetch(getCityInfo(city))
         .then(resp => resp.json());
     if (data.cod != 200) {
         alert("Город не найден");
+        el.remove();
         return;
     }
     
-    document.querySelector('#favorite-cities').appendChild(createEmptyCity());
-    let el = document.querySelector('#favorite-cities').lastElementChild;
     updateFavourite(el, data);
 
     var cities = localStorage.getItem("fav-cities");
@@ -86,15 +98,32 @@ function deleteCity(el, name) {
     localStorage.setItem("fav-cities", JSON.stringify(cities));
 }
 
+function makeOffline(el) {
+    if (el.querySelector('h2')) {
+        el.querySelector('h2').textContent = "Ошибка загрузки";
+    }
+    if (el.querySelector('h3')) {
+        el.querySelector('h3').textContent = "Ошибка загрузки";
+    }
+}
+
 async function updateCities() {
     var cities = localStorage.getItem("fav-cities");
+    console.log(cities);
     if (cities) {
         for (let city of JSON.parse(cities)) {
             document.querySelector('#favorite-cities').appendChild(createEmptyCity());
-            let el = document.querySelector('#favorite-cities').lastElementChild;
-            let data = await fetch(getCityInfo(city))
-                .then(resp => resp.json());
-            updateFavourite(el, data);
+        }
+        let iter = 0;
+        for (let city of JSON.parse(cities)) {
+            try {
+                let data = await fetch(getCityInfo(city))
+                    .then(resp => resp.json());
+                updateFavourite(document.querySelectorAll('.favorite-city')[iter], data);
+            } catch(err) {
+                makeOffline(document.querySelectorAll('.favorite-city')[iter]);
+            }
+            iter = iter + 1;
         }
     }
 }
