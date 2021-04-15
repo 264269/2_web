@@ -84,7 +84,7 @@ async function addCity() {
                     return;
                 }
                 fillFavouriteCity(el, data);
-                await fetch(`http://localhost:3000/features?city=${city}`,
+                await fetch(`http://localhost:3000/features?city=${city.toLowerCase()}`,
                 {
                     method: 'POST'
                 });
