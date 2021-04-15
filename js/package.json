@@ -19,6 +19,7 @@
   "homepage": "https://github.com/264269/2_web#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "mongodb": "^3.6.5"
+    "mongodb": "^3.6.5",
+    "node-fetch": "^2.6.1"
   }
 }
