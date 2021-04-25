@@ -53,7 +53,7 @@ app.get('/weather/coordinates', (request, response) => {
 })
 
 //гет-запрос на получение списка городов
-app.get('/features', async (request, response) => {
+app.get('/favorites', async (request, response) => {
     let ip = parseIp(request);
     if (ip) {
         MongoClient.connect(dbURI, (err, client) => {
@@ -76,7 +76,7 @@ app.get('/features', async (request, response) => {
 })
 
 //пост-запрос на добавление города в список
-app.post('/features', (request, response) => {
+app.post('/favorites', (request, response) => {
     let ip = parseIp(request);
     let city = request.query['city'];
     if (ip && city) {
@@ -92,12 +92,12 @@ app.post('/features', (request, response) => {
                 client.close();
             });
         });
-        response.send(city);
+        response.sendStatus(200);
     }
 })
 
 //делит-запрос на удаление города
-app.delete('/features', (request, response) => {
+app.delete('/favorites', (request, response) => {
     let ip = parseIp(request);
     let city = request.query['city'];
     if (ip && city) {

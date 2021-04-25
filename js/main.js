@@ -7,7 +7,7 @@ function initMainCityUpdate() {
             updateMainCity(ans);
         },
         function (err) {
-            ans = `http://localhost:3000/weather/city?q=абу-даби`;
+            ans = `http://localhost:3000/weather/city?q=Москва`;
             updateMainCity(ans);
         });
 }
@@ -84,7 +84,7 @@ async function addCity() {
                     return;
                 }
                 fillFavouriteCity(el, data);
-                await fetch(`http://localhost:3000/features?city=${data.name.toLowerCase()}`,
+                await fetch(`http://localhost:3000/favorites?city=${data.name.toLowerCase()}`,
                 {
                     method: 'POST'
                 });
@@ -101,7 +101,7 @@ async function deleteCity(el, name) {
     name = name.toLowerCase();
 
     try {
-        await fetch('http://localhost:3000/features?city=' + name,
+        await fetch('http://localhost:3000/favorites?city=' + name,
             {
                 method: 'DELETE'
             })
@@ -126,7 +126,7 @@ function makeOffline(el) {
 
 async function updateCities() {
     let cities;
-    await fetch("http://localhost:3000/features")
+    await fetch("http://localhost:3000/favorites")
         .then(response => response.json())
         .then(data => {
             cities = data;
