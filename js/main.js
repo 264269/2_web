@@ -111,6 +111,7 @@ async function deleteCity(el, name) {
                 }
             })
     } catch (err) {
+        alert("Не удалось удалить город");
         el.querySelector('button').disabled = false;
     }
 }
